@@ -1,0 +1,214 @@
+/* colors 
+
+--primary-clr-100: hsl(90, 100%, 88%);
+download text btns
+footer text
+
+--primary-clr-200: hsl(84, 29%, 90%);
+body background
+
+--primary-clr-300: hsl(90, 37%, 85%);
+reviews btns
+
+--secondary-clr-400: hsl(120, 35%, 21%);
+texts
+
+--secondary-clr-500: hsl(120, 31%, 13%);
+footer
+
+--accent-clr-100: hsl(120, 35%, 21%);
+btns
+
+--white-clr: hsl(0, 0%, 100%)
+reviews
+*/
+
+/* --------------------- */
+/*   CUSTOM PROPERTIES   */
+/* --------------------- */
+
+:root {
+  --clr-green-100: 90, 100%, 88%;
+  --clr-green-200: 84, 29%, 90%;
+  --clr-green-300: 90, 37%, 85%;
+  --clr-green-400: 120, 35%, 21%;
+  --clr-green-500: 120, 31%, 13%;
+  --accent-clr: 120, 35%, 21%;
+  --white-clr: 0, 0%, 100%;
+
+  --font-size-100: 0.9375rem;
+  --font-size-200: 1.0625rem;
+  --font-size-300: 1.125rem;
+  --font-size-400: 1.1875rem;
+  --font-size-450: 1.5rem;
+  --font-size-500: 1.8125rem;
+  --font-size-600: 3.5rem;
+  --font-size-700: 6.25rem;
+
+  --font-sans-normal: "Inter", sans-serif;
+}
+
+/* --------------------- */
+/*    UTILITY CLASSES    */
+/* --------------------- */
+
+/* Layout */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: var(--width, 1108px);
+}
+
+.screen-reader-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* Colors */
+.bg-clr-200 {background-color: hsl(var(--clr-green-200));}
+.bg-clr-300 {background-color: hsl(var(--clr-green-300));}
+.bg-clr-400 {background-color: hsl(var(--clr-green-400));}
+.bg-clr-500 {background-color: hsl(var(--clr-green-500));}
+.bg-clr-light { background-color:hsl(var(--white-clr));}
+
+.text-clr-100 {color: hsl(var(--clr-green-100));}
+.text-clr-400 {color: hsl(var(--clr-green-400));}
+
+/* Typography */
+
+.font-size-100 {
+  font-size: var(--font-size-100);
+}
+.font-size-200 {
+  font-size: var(--font-size-200);
+}
+.font-size-300 {
+  font-size: var(--font-size-300);
+}
+.font-size-400 {
+  font-size: var(--font-size-400);
+}
+.font-size-500 {
+  font-size: var(--font-size-500);
+}
+.font-size-600 {
+  font-size: var(--font-size-600);
+}
+.font-size-700 {
+  font-size: var(--font-size-700);
+}
+
+.line-height-100 {
+    line-height: 28px;
+}
+.line-height-200 {
+    line-height: 46px;
+}
+.line-height-300 {
+    line-height: 100px;
+}
+
+/* --------------------- */
+/*   GENERAL SELECTORS   */
+/* --------------------- */
+
+body {
+  font-family: var(--font-sans-normal);
+  color: hsl(var(--clr-green-400));
+  background-color: hsl(var(--clr-green-200));
+}
+
+/* --------------------- */
+/*       COMPONENTS      */
+/* --------------------- */
+
+/* btns */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 9999px;
+}
+
+.btn-normal {
+  padding: 1.125em 2.25em;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: color 1.5s ease-out;
+}
+
+.btn-normal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 97%;
+  background-color: hsl(var(--clr-green-300));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: 
+    transform .3s ease-out, 
+    opacity .3s ease-out;
+}
+
+.btn-normal:hover::after, 
+.btn-normal:focus::after {
+  transform: translateX(100%);
+  opacity: 1;
+}
+
+.btn-normal:hover,
+.btn-normal:focus {
+  color: hsl(var(--clr-green-400));
+}
+
+.btn-normal:active {
+  background-color: hsl(var(--clr-green-300));
+  transform: translateY(3px);
+}
+
+.btn-small {
+  padding: 0.4375rem 1.0625rem;
+  border: 1px solid hsl(var(--clr-green-400));
+}
+
+.btn-small:hover,
+.btn-small:focus {
+  background-color: hsl(var(--clr-green-300));
+}
+
+.dot-indicators > * {
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: hsl(var(--clr-green-400));
+  border: 1px solid hsl(var(--clr-green-400));
+}
+
+.dot-indicators > [aria-selected='false'] {
+  background-color: hsl(var(--clr-green-300));
+}
