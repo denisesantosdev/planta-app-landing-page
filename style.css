@@ -42,7 +42,7 @@ reviews
   --font-size-400: 1.1875rem;
   --font-size-450: 1.5rem;
   --font-size-500: 1.8125rem;
-  --font-size-600: 3.5rem;
+  --font-size-600: 3rem;
   --font-size-700: 4rem;
 
   --font-sans-normal: "Inter", sans-serif;
@@ -50,6 +50,7 @@ reviews
 
 @media (min-width: 45em) {
   :root {
+    --font-size-600: 3.5rem;
     --font-size-700: 6.25rem;
   }
 }
@@ -62,12 +63,12 @@ reviews
 
 .flex {
   display: flex;
-  gap: var(--gap, 1rem);
+  gap: var(--gap, 2rem);
 }
 
 .grid {
   display: grid;
-  gap: var(--gap, 1rem);
+  gap: var(--gap, 2rem);
 }
 
 .container {
@@ -89,7 +90,6 @@ reviews
 }
 
 .even-columns {
-  --gap: 2rem;
   place-items: center;
 }
 
@@ -153,6 +153,9 @@ reviews
 .line-height-200 {
   line-height: 46px;
 }
+.line-height-250 {
+  line-height: 56px;
+}
 .line-height-300 {
   line-height: 75px;
 }
@@ -191,7 +194,7 @@ reviews
   top: 0;
   left: -100%;
   width: 100%;
-  height: 97%;
+  height: 95%;
   background-color: hsl(var(--clr-green-300));
   border-radius: inherit;
   z-index: -1;
@@ -243,6 +246,19 @@ reviews
   background-color: hsl(var(--clr-green-300));
 }
 
+.primary-main__img-info {
+  --gap: 0.5rem;
+  place-items: center;
+  position: absolute;
+  top: var(--top, 1rem);
+  bottom: var(--bottom);
+  left: var(--left, 1rem);
+  width: fit-content;
+  padding: 0.6875em 1.0625em;
+  background-color: hsl(var(--white-clr));
+  border-radius: 9999px;
+}
+
 /* --------------------- */
 /*   GENERAL SELECTORS   */
 /* --------------------- */
@@ -261,7 +277,7 @@ body {
 /*    CLASS SELECTORS    */
 /* --------------------- */
 
-.primary-header a {
+a {
   text-decoration: none;
 }
 
@@ -274,4 +290,51 @@ body {
 
 .hero-section > div > *:not(:first-child) {
   margin-top: 50px;
+}
+
+@media (min-width: 60em) {
+  .primary-main {
+    --gap: 7rem;
+  }
+}
+
+.primary-main__img-container {
+  position: relative;
+}
+
+.primary-main section:nth-child(2) img:nth-child(2) {
+  border-radius: 50%;
+}
+
+.primary-main section:nth-child(2) .primary-main__img-info {
+  --left: -1rem;
+}
+
+.primary-main section:nth-child(3) img:nth-child(2) {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.primary-main section:nth-child(3) .primary-main__img-info {
+  --top: none;
+  --bottom: 1rem
+}
+
+.primary-main section:nth-child(4) img:nth-child(2) {
+  border-radius: 6.5rem;
+}
+
+.primary-main section:nth-child(4) .primary-main__img-info {
+  --top: 2rem;
+  --left: -2rem;
+}
+
+.primary-main__text-section span {
+  margin-bottom: 0.625rem;
+}
+.primary-main__text-section h2 {
+  margin-bottom: 1.5rem;
+}
+.primary-main__text-section p {
+  margin-bottom: 2.625rem;
 }
