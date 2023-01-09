@@ -433,14 +433,14 @@ a {
   grid-auto-flow: dense;
 }
 
-@media (min-width:750px){
+@media (min-width: 750px) {
   .decorative-forms {
     grid-template-columns: repeat(4, minmax(160px, 1fr));
   }
 }
 
 .decorative-forms div {
-  background-color: hsl(var(--clr-green-400));
+  background-color: hsl(var(--accent-clr));
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -450,6 +450,7 @@ a {
 }
 
 .decorative-forms div:before {
+  /* Keeps the aspect ratio */
   content: "";
   display: block;
   height: 0;
@@ -487,3 +488,83 @@ a {
   background-image: url(img/flowering_plants.webp.png);
   border-radius: 40px 0px 40px 40px;
 }
+
+/* footer */
+
+footer {
+  padding: 2rem 0;
+}
+
+footer a {
+  color: hsl(var(--clr-green-100), 0.5);
+}
+
+.footer__navigation-section {
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 13.5rem;
+}
+
+@media (min-width: 45em) {
+  .footer__navigation-section {
+    flex-direction: row;
+  }
+}
+
+.footer__navigation-section ~ div {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__navigation-section img {
+  width: 106px;
+}
+
+footer nav {
+  --gap: 7rem;
+  justify-content: space-between;
+}
+
+footer nav h2 {
+  font-size: var(--font-size-200);
+  margin-bottom: 1rem;
+}
+
+footer ul > *:not(:first-child) {
+  margin-top: 1rem;
+}
+
+footer nav li {
+  font-size: var(--font-size-200);
+  color: hsl(var(--clr-green-100), 0.5);
+}
+
+.footer__download-links {
+  --gap: 1rem;
+  place-items: center;
+  flex-direction: column;
+}
+
+@media (min-width: 45em) {
+  .footer__download-links {
+    flex-direction: row;
+  }
+}
+
+.footer__download-links > div img {
+  width: 36px;
+  height: 36px;
+}
+
+.footer__download-links a img {
+  width: 126px;
+}
+
+.footer__credits {
+  font-size: var(--font-size-100);
+}
+
+.footer__credits > *:not(:first-child) {
+  margin-top: .5rem;
+}
+
