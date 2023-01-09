@@ -382,8 +382,9 @@ a {
 .reviews-container {
   --gap: 1rem;
 
-/*   position: absolute;
- */  overflow: hidden;
+  /*   position: absolute;
+ */
+  overflow: hidden;
 }
 
 /* review */
@@ -396,11 +397,11 @@ a {
   position: relative;
 }
 
-.review >:nth-child(1) {
+.review > :nth-child(1) {
   margin-bottom: 1.125rem;
 }
 
-.review >:nth-child(2) {
+.review > :nth-child(2) {
   margin-bottom: 5.125rem;
 }
 
@@ -418,4 +419,71 @@ a {
   width: fit-content;
   margin: 0 auto;
   margin-top: 2rem;
+}
+
+.decorative-forms-section h2 {
+  text-align: center;
+}
+
+.decorative-forms {
+  color: hsl(var(--white-clr));
+  --gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 220px;
+  grid-auto-flow: dense;
+}
+
+@media (min-width:750px){
+  .decorative-forms {
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+  }
+}
+
+.decorative-forms div {
+  background-color: hsl(var(--clr-green-400));
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  padding: 1rem;
+}
+
+.decorative-forms div:before {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  padding-bottom: calc(9 / 16 * 100%);
+}
+
+.decorative-forms div:nth-child(1) {
+  background-image: url(img/cactus_succulents.webp.png);
+  place-items: top;
+  border-radius: 0px 0px 250px 0px;
+}
+.decorative-forms div:nth-child(2) {
+  background-image: url(img/vegetables.webp.png);
+  place-items: center;
+  border-radius: 19.4375rem;
+}
+.decorative-forms div:nth-child(3) {
+  background-image: url(img/herbs.webp.png);
+  border-radius: 40px 40px 40px 0px;
+}
+.decorative-forms div:nth-child(4) {
+  background-image: url(img/orchids.webp.png);
+  grid-row: span 2;
+  place-items: center;
+  border-radius: 0px 0px 200px 0px;
+}
+.decorative-forms div:nth-child(5) {
+  background-image: url(img/foliage_plants.webp.png);
+  grid-column: span 2;
+  border-radius: 0px 200px;
+  place-items: top;
+}
+.decorative-forms div:nth-child(6) {
+  background-image: url(img/flowering_plants.webp.png);
+  border-radius: 40px 0px 40px 40px;
 }
