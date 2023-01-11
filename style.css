@@ -239,6 +239,9 @@
 /*   GENERAL SELECTORS   */
 /* --------------------- */
 
+* {
+  outline: 1px solid red;
+}
 body {
   font-family: var(--font-sans-normal);
   color: hsl(var(--clr-green-400));
@@ -495,8 +498,13 @@ footer a {
 }
 
 .footer__navigation-section nav {
-  --gap: 7rem;
   justify-content: space-between;
+}
+
+@media (min-width: 45em) {
+  .footer__navigation-section nav {
+    --gap: 7rem;
+  }
 }
 
 .footer__navigation-section nav h2 {
