@@ -370,6 +370,8 @@ a {
   border-radius: 1.25rem;
   width: 70%;
   flex-shrink: 0;
+  transition: transform 1000ms ease-out infinite;
+
 }
 
 .review > :nth-child(1) {
@@ -388,6 +390,7 @@ a {
 
 .reviewer {
   --gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .review-btns {
@@ -400,7 +403,7 @@ a {
 
 .decorative-forms-section h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3.3125rem;
 }
 
 .decorative-forms {
@@ -472,7 +475,7 @@ a {
 /* footer */
 
 footer {
-  padding: 2rem 0;
+  padding: 4.6875rem 0;
 }
 
 footer a {
@@ -578,3 +581,13 @@ footer ul > *:not(:first-child) {
   transform: translateX(0); /* moves elements back */
   opacity: 1;
 }
+
+/* review */
+
+/* .slide {
+  transform: translateX(-100%);
+}
+
+.send-to-end {
+  transform: translateX(0%);
+} */

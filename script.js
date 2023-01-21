@@ -70,17 +70,14 @@ const reviews = [
   },
 ];
 
-const reviewInterval = setInterval(populateReviews, 2500);
-
-let index = clickToChangeReview() || 3;
+let index = 0;
 
 function populateReviews() {
-  const reviewInView = document.querySelector("#review-inView");
-  reviewInView.classList.add('slide-review')
+  const reviewInView = document.querySelector("#review-center");
   const reviewLeft = document.querySelector("#review-left");
   const reviewRight = document.querySelector("#review-right");
 
-  let reviewInCenter = index++; //Math.floor(reviews.length / 2);
+  let reviewInCenter = index;
   let reviewToTheLeft = reviewInCenter - 1;
   let reviewToTheRight = reviewInCenter + 1;
 
@@ -88,46 +85,45 @@ function populateReviews() {
     reviewToTheLeft = reviews.length - 1;
   }
 
-  if (index >= reviews.length) {
-    index = 0;
+  if (index >= reviews.length - 1) {
     reviewToTheRight = 0;
   }
+  console.log(index, reviewToTheRight);
 
   reviewInView.innerHTML = `
   <h3 class="font-size-300">${reviews[reviewInCenter].title}</h3>
-  <p class="font-size-250">${reviews[reviewInCenter].review}</p>
-  <div class="reviewer | flex">
-    <span class="font-size-100">${reviews[reviewInCenter].userName}</span>
-    <div>
-      <img src="img/star.svg" alt="" />
+    <p class="font-size-250">${reviews[reviewInCenter].review}</p>
+    <div class="reviewer | flex">
+      <span class="font-size-100">${reviews[reviewInCenter].userName}</span>
+      <div>
+        <img src="img/stars.svg" alt="" />
+      </div>
     </div>
-  </div>
- `;
-
+  `;
   reviewLeft.innerHTML = `
   <h3 class="font-size-300">${reviews[reviewToTheLeft].title}</h3>
-  <p class="font-size-250">${reviews[reviewToTheLeft].review}</p>
-  <div class="reviewer | flex">
-    <span class="font-size-100">${reviews[reviewToTheLeft].userName}</span>
-    <div>
-      <img src="img/star.svg" alt="" />
+    <p class="font-size-250">${reviews[reviewToTheLeft].review}</p>
+    <div class="reviewer | flex">
+      <span class="font-size-100">${reviews[reviewToTheLeft].userName}</span>
+      <div>
+        <img src="img/stars.svg" alt="" />
+      </div>
     </div>
-  </div>
- `;
+  `;
 
   reviewRight.innerHTML = `
   <h3 class="font-size-300">${reviews[reviewToTheRight].title}</h3>
-  <p class="font-size-250">${reviews[reviewToTheRight].review}</p>
-  <div class="reviewer | flex">
-    <span class="font-size-100">${reviews[reviewToTheRight].userName}</span>
-    <div>
-      <img src="img/star.svg" alt="" />
+    <p class="font-size-250">${reviews[reviewToTheRight].review}</p>
+    <div class="reviewer | flex">
+      <span class="font-size-100">${reviews[reviewToTheRight].userName}</span>
+      <div>
+        <img src="img/stars.svg" alt="" />
+      </div>
     </div>
-  </div>
- `;
-
-  changeSelectedButton(index);
+  `;
 }
+
+populateReviews();
 
 function addReviewBtns() {
   for (let i = 0; i < reviews.length; i++) {
@@ -137,6 +133,8 @@ function addReviewBtns() {
     </button>
     `;
   }
+
+  changeSelectedButton(index);
 }
 
 addReviewBtns();
@@ -152,22 +150,19 @@ function changeSelectedButton(reviewId) {
   });
 }
 
-function slideReviews() {}
+reviewBtnsContainer.addEventListener("click", clickToChangeReview);
 
 function clickToChangeReview(e) {
-  reviewBtnsContainer.addEventListener("click", (e) => {
-    index = e.target.dataset.id;
+  index = Number.parseInt(e.target.dataset.id);
 
-    e.target.ariaSelected = "true";
+  e.target.ariaSelected = "true";
 
-    reviewBtnsContainer.childNodes.forEach((child) => {
-      if (child !== e.target) {
-        child.ariaSelected = "false";
-      }
-    });
-
-    changeSelectedButton(index);
-    populateReviews();
-    return index;
+  reviewBtnsContainer.childNodes.forEach((child) => {
+    if (child !== e.target) {
+      child.ariaSelected = "false";
+    }
   });
+
+  changeSelectedButton(index);
+  populateReviews();
 }
